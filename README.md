@@ -114,23 +114,3 @@ E.g. `gpte projects/example-vision gpt-4-vision-preview --prompt_file prompt/tex
 By default, deepcoder supports OpenAI Models via the OpenAI API or Azure OpenAI API, as well as Anthropic models.
 
 With a little extra setup, you can also run with open source models like WizardCoder. See the [documentation](https://deepcoder.readthedocs.io/en/latest/open_models.html) for example instructions.
-
-## Mission
-
-The deepcoder community mission is to **maintain tools that coding agent builders can use and facilitate collaboration in the open source community**.
-
-If you are interested in contributing to this, we are interested in having you.
-
-If you want to see our broader ambitions, check out the [roadmap](https://github.com/deepcode-ai/deepcoder/blob/main/ROADMAP.md), and join
-[discord](https://discord.gg/8tcDQ89Ej2)
-to learn how you can [contribute](.github/CONTRIBUTING.md) to it.
-
-deepcoder is [governed](https://github.com/deepcode-ai/deepcoder/blob/main/GOVERNANCE.md) by a board of long-term contributors. If you contribute routinely and have an interest in shaping the future of deepcoder, you will be considered for the board.
-
-## Significant contributors
-
-[@ATheorell](https://github.com/ATheorell) [@similato87](https://github.com/similato87) [@TheoMcCabe](https://github.com/TheoMcCabe) [@captivus](https://github.com/captivus)
-
-## Example
-
-![Demo](https://github.com/deepcode-ai/deepcoder/assets/4467025/40d0a9a8-82d0-4432-9376-136df0d57c99)
