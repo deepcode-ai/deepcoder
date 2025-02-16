@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/github/license/deepcoder-org/deepcoder)](https://github.com/deepcode-ai/deepcoder/blob/main/LICENSE)
 [![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/deepcoder-org/deepcoder)](https://github.com/deepcode-ai/deepcoder/issues)
 ![GitHub Release](https://img.shields.io/github/v/release/deepcoder-org/deepcoder)
-[![Twitter Follow](https://img.shields.io/twitter/follow/antonosika?style=social)](https://twitter.com/antonosika)
+[![Twitter Follow](https://img.shields.io/twitter/follow/khulnasoft?style=social)](https://twitter.com/khulnasoft)
 
 The OG code genereation experimentation platform!
 
