@@ -134,9 +134,7 @@ def human_review_input() -> Optional[Review]:
     if not check_collection_consent():
         return None
     print()
-    print(
-        colored("To help deepcoder learn, please answer 3 questions:", "light_green")
-    )
+    print(colored("To help deepcoder learn, please answer 3 questions:", "light_green"))
     print()
 
     ran = input("Did the generated code run at all? " + TERM_CHOICES)

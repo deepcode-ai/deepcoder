@@ -28,8 +28,7 @@ def test_config_load():
     assert config.deepcoder_app.project_id == "..."
     assert config.deepcoder_app.openapi
     assert (
-        config.deepcoder_app.openapi[0].url
-        == "https://api.deepcoder.app/openapi.json"
+        config.deepcoder_app.openapi[0].url == "https://api.deepcoder.app/openapi.json"
     )
     assert (
         config.deepcoder_app.openapi[1].url
@@ -82,8 +81,7 @@ def test_config_from_dict_with_openapi():
     assert config.deepcoder_app.project_id == "..."
     assert config.deepcoder_app.openapi
     assert (
-        config.deepcoder_app.openapi[0].url
-        == "https://api.deepcoder.app/openapi.json"
+        config.deepcoder_app.openapi[0].url == "https://api.deepcoder.app/openapi.json"
     )
 
 

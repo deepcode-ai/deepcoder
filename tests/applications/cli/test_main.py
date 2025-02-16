@@ -229,9 +229,7 @@ class TestLoadPrompt:
                 )
 
             assert isinstance(result, Prompt)
-            assert (
-                result.text == "What application do you want deepcoder to generate?"
-            )
+            assert result.text == "What application do you want deepcoder to generate?"
             assert result.image_urls is None
 
     #  Prompt file is a directory
@@ -267,9 +265,7 @@ class TestLoadPrompt:
                 )
 
             assert isinstance(result, Prompt)
-            assert (
-                result.text == "What application do you want deepcoder to generate?"
-            )
+            assert result.text == "What application do you want deepcoder to generate?"
             assert result.image_urls is None
 
     #  image_directory does not exist in input_repo
