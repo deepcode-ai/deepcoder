@@ -14,6 +14,8 @@ class PrepromptsHolder:
     ----------
     preprompts_path : Path
         The file path to the directory containing preprompt texts.
+    _preprompts_repo : DiskMemory
+        The repository instance for accessing preprompt files.
 
     Methods
     -------
@@ -23,7 +25,10 @@ class PrepromptsHolder:
 
     def __init__(self, preprompts_path: Path):
         self.preprompts_path = preprompts_path
+        self._preprompts_repo = DiskMemory(self.preprompts_path)
 
     def get_preprompts(self) -> Dict[str, str]:
-        preprompts_repo = DiskMemory(self.preprompts_path)
-        return {file_name: preprompts_repo[file_name] for file_name in preprompts_repo}
+        return {
+            file_name: self._preprompts_repo[file_name]
+            for file_name in self._preprompts_repo
+        }

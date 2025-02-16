@@ -149,7 +149,7 @@ def to_emoji(value: bool) -> str:
 
     """
 
-    return "\U00002705" if value else "\U0000274C"
+    return "\U00002705" if value else "\U0000274c"
 
 
 def insert_markdown_section(file_path, section_title, section_text, level):

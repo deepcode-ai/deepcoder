@@ -25,7 +25,6 @@ execute_entrypoint : function
 setup_sys_prompt_existing_code : function
     Sets up the system prompt for improving existing code.
 
-
 improve : function
     Improves the code based on user input and returns the updated files.
 """
@@ -95,7 +94,7 @@ def setup_sys_prompt(preprompts: MutableMapping[Union[str, Path], str]) -> str:
 
 
 def setup_sys_prompt_existing_code(
-    preprompts: MutableMapping[Union[str, Path], str]
+    preprompts: MutableMapping[Union[str, Path], str],
 ) -> str:
     """
     Sets up the system prompt for improving existing code.
@@ -193,7 +192,7 @@ def gen_entrypoint(
     )
     print()
     chat = messages[-1].content.strip()
-    regex = r"```\S*\n(.+?)```"
+    regex = r"\S*\n(.+?)"
     matches = re.finditer(regex, chat, re.DOTALL)
     entrypoint_code = FilesDict(
         {ENTRYPOINT_FILE: "\n".join(match.group(1) for match in matches)}
@@ -268,7 +267,7 @@ def execute_entrypoint(
     return files_dict
 
 
-def improve_fn(
+def improve(
     ai: AI,
     prompt: Prompt,
     files_dict: FilesDict,
