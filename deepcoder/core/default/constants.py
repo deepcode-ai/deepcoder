@@ -9,4 +9,5 @@ Constants
 MAX_EDIT_REFINEMENT_STEPS : int
     The maximum number of refinement steps allowed when generating edit blocks.
 """
+
 MAX_EDIT_REFINEMENT_STEPS = 2

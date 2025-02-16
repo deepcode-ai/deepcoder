@@ -8,6 +8,7 @@ are expected to provide concrete methods for these actions.
 Classes:
     BaseAgent: Abstract base class for an agent that interacts with code.
 """
+
 from abc import ABC, abstractmethod
 
 from deepcoder.core.files_dict import FilesDict

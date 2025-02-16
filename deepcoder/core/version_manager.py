@@ -5,6 +5,7 @@ This module provides an abstract base class for a version manager that handles t
 for code. Implementations of this class are expected to provide methods to create a snapshot of the given
 code and return a reference to it.
 """
+
 from abc import ABC, abstractmethod
 from pathlib import Path
 from typing import Union

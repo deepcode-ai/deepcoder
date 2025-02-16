@@ -1,4 +1,5 @@
 """Script for auto-generating api_reference.rst"""
+
 import glob
 import re
 
@@ -49,7 +50,7 @@ API Reference
         section = f":mod:`deepcoder.{module}`: {module_title}"
         full_doc += f"""\
 {section}
-{'=' * (len(section) + 1)}
+{"=" * (len(section) + 1)}
 
 .. automodule:: deepcoder.{module}
     :no-members:
