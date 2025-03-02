@@ -1,1 +1,1 @@
-If up is pressed, the snake should turn down and after one step to the right. If down is pressed it should go up. Also, make the snake go left when right is pressed and right when left is pressed.
+If the up arrow key is pressed, the snake should turn down and move one step to the right. If the down arrow key is pressed, it should move up. Additionally, the snake should move left when the right arrow key is pressed and move right when the left arrow key is pressed.
