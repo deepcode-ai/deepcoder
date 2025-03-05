@@ -10,6 +10,7 @@ Functions
 load_apps : function
     Loads the APPS benchmark, which consists of a series coding problems.
 """
+
 from pathlib import Path
 from subprocess import TimeoutExpired
 from typing import Union

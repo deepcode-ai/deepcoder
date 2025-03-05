@@ -20,6 +20,7 @@ Classes:
     TaskResult:
         Represents the result of running a single task within a benchmark.
 """
+
 from dataclasses import dataclass
 from subprocess import Popen
 from typing import Callable, Dict, Optional
