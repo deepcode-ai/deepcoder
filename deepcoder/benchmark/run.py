@@ -12,6 +12,7 @@ run : function
 print_results : function
     Prints the results of the benchmark tasks to the console.
 """
+
 import time
 
 from typing import List

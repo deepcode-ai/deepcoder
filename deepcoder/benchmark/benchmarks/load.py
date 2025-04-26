@@ -9,6 +9,7 @@ Functions
 get_benchmark : function
     Retrieves a Benchmark object by name. Raises ValueError if the benchmark is unknown.
 """
+
 from deepcoder.benchmark.bench_config import BenchConfig
 from deepcoder.benchmark.benchmarks.apps.load import load_apps
 from deepcoder.benchmark.benchmarks.gptme.load import load_gptme

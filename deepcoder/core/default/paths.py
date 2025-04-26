@@ -36,6 +36,7 @@ memory_path : function
 metadata_path : function
     Constructs the full path to the metadata directory based on a given base path.
 """
+
 import os
 
 from pathlib import Path

@@ -9,30 +9,32 @@ with an AI agent and to enforce type checks on keys and values.
 Classes:
     FilesDict: A dictionary-based container for managing code files.
 """
+
 from collections import OrderedDict
+from collections.abc import MutableMapping
 from pathlib import Path
-from typing import Union
+from typing import Iterator, Union
 
 
-# class Code(MutableMapping[str | Path, str]):
-# ToDo: implement as mutable mapping, potentially holding a dict instead of being a dict.
-class FilesDict(dict):
+class FilesDict(MutableMapping):
     """
     A dictionary-based container for managing code files.
 
-    This class extends the standard dictionary to enforce string keys and values,
-    representing filenames and their corresponding code content. It provides methods
-    to format its contents for chat-based interaction with an AI agent and to enforce
-    type checks on keys and values.
+    This class implements the MutableMapping interface to provide a dictionary-like
+    container that enforces string keys and values, representing filenames and their
+    corresponding code content. It provides methods to format its contents for
+    chat-based interaction with an AI agent and enforces type checks on keys and values.
     """
+
+    def __init__(self):
+        self._data = {}
+
+    def __getitem__(self, key: Union[str, Path]) -> str:
+        return self._data[str(key)]
 
     def __setitem__(self, key: Union[str, Path], value: str):
         """
         Set the code content for the given filename, enforcing type checks on the key and value.
-
-        Overrides the dictionary's __setitem__ to enforce type checks on the key and value.
-        The key must be a string or a Path object, and the value must be a string representing
-        the code content.
 
         Parameters
         ----------
@@ -47,20 +49,28 @@ class FilesDict(dict):
             If the key is not a string or Path, or if the value is not a string.
         """
         if not isinstance(key, (str, Path)):
-            raise TypeError("Keys must be strings or Path's")
+            raise TypeError("Keys must be strings or Path objects")
         if not isinstance(value, str):
             raise TypeError("Values must be strings")
-        super().__setitem__(key, value)
+        self._data[str(key)] = value
 
-    def to_chat(self):
+    def __delitem__(self, key: Union[str, Path]):
+        del self._data[str(key)]
+
+    def __iter__(self) -> Iterator[str]:
+        return iter(self._data)
+
+    def __len__(self) -> int:
+        return len(self._data)
+
+    def to_chat(self) -> str:
         """
-        Formats the items of the object (assuming file name and content pairs)
-        into a string suitable for chat display.
+        Formats the items of the object into a string suitable for chat display.
 
         Returns
         -------
         str
-            A string representation of the files.
+            A string representation of the files with line numbers.
         """
         chat_str = ""
         for file_name, file_content in self.items():
@@ -69,17 +79,16 @@ class FilesDict(dict):
             for line_number, line_content in lines_dict.items():
                 chat_str += f"{line_number} {line_content}\n"
             chat_str += "\n"
-        return f"```\n{chat_str}```"
+        return f"\n{chat_str}"
 
-    def to_log(self):
+    def to_log(self) -> str:
         """
-        Formats the items of the object (assuming file name and content pairs)
-        into a string suitable for log display.
+        Formats the items of the object into a string suitable for log display.
 
         Returns
         -------
         str
-            A string representation of the files.
+            A string representation of the files without line numbers.
         """
         log_str = ""
         for file_name, file_content in self.items():
@@ -89,27 +98,23 @@ class FilesDict(dict):
         return log_str
 
 
-def file_to_lines_dict(file_content: str) -> dict:
+def file_to_lines_dict(file_content: str) -> OrderedDict:
     """
-    Converts file content into a dictionary where each line number is a key
-    and the corresponding line content is the value.
+    Converts file content into an ordered dictionary mapping line numbers to line content.
 
     Parameters
     ----------
-    file_name : str
-        The name of the file.
     file_content : str
         The content of the file.
 
     Returns
     -------
-    dict
-        A dictionary with file names as keys and dictionaries (line numbers as keys and line contents as values) as values.
+    OrderedDict
+        An ordered dictionary with line numbers as keys and line contents as values.
     """
-    lines_dict = OrderedDict(
+    return OrderedDict(
         {
             line_number: line_content
             for line_number, line_content in enumerate(file_content.split("\n"), 1)
         }
     )
-    return lines_dict
